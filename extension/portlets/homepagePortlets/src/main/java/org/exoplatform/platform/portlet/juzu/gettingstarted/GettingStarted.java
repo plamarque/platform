@@ -21,7 +21,7 @@ package org.exoplatform.platform.portlet.juzu.gettingstarted;
 import juzu.Path;
 import juzu.Resource;
 import juzu.View;
-import juzu.plugin.ajax.Ajax;
+import org.exoplatform.commons.juzu.ajax.Ajax;
 import juzu.template.Template;
 import org.exoplatform.platform.portlet.juzu.gettingstarted.models.GettingStartedService;
 import org.exoplatform.platform.portlet.juzu.gettingstarted.models.GettingStartedUtils;

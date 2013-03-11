@@ -23,7 +23,7 @@ import juzu.Path;
 import juzu.Resource;
 import juzu.SessionScoped;
 import juzu.View;
-import juzu.plugin.ajax.Ajax;
+import org.exoplatform.commons.juzu.ajax.Ajax;
 import juzu.template.Template;
 import org.apache.commons.lang.ArrayUtils;
 import org.exoplatform.calendar.service.*;

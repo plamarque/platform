@@ -35,10 +35,6 @@
       <artifactId>commons-component-product</artifactId>
     </dependency>
     <dependency>
-      <groupId>org.exoplatform.commons</groupId>
-      <artifactId>commons-juzu</artifactId>
-    </dependency>
-    <dependency>
       <groupId>org.exoplatform.ecms</groupId>
       <artifactId>ecms-core-services</artifactId>
     </dependency>
@@ -100,10 +96,10 @@
         </exclusion>
       </exclusions>
     </dependency>
-    <dependency>
-      <groupId>org.juzu</groupId>
-      <artifactId>juzu-core</artifactId>
-    </dependency>
+     <dependency>
+        <groupId>org.exoplatform.commons</groupId>
+        <artifactId>commons-juzu</artifactId>
+     </dependency>
     <dependency>
       <groupId>org.juzu</groupId>
       <artifactId>juzu-plugins-less</artifactId>

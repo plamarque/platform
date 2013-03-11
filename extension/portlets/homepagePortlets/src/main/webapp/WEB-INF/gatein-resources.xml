@@ -11,43 +11,167 @@
   51 Franklin St, Fifth Floor, Boston, MA 02110-1301 USA, or see the FSF site: 
   http://www.fsf.org. -->
 
-<gatein-resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_3 http://www.gatein.org/xml/ns/gatein_resources_1_3"
-   xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_3">
+<gatein-resources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://www.gatein.org/xml/ns/gatein_resources_1_3 http://www.gatein.org/xml/ns/gatein_resources_1_3"
+                  xmlns="http://www.gatein.org/xml/ns/gatein_resources_1_3">
 
-  <portlet-skin>
-    <application-name>homepage-portlets</application-name>
-    <portlet-name>WhoIsOnLinPortlet</portlet-name>
-    <skin-name>Default</skin-name>
-    <css-path>/skin/css/whoisonline.css</css-path>
-    <css-priority>1</css-priority>
-  </portlet-skin>
-  <portlet-skin>
-    <application-name>homepage-portlets</application-name>
-    <portlet-name>GettingStartedPortlet</portlet-name>
-    <skin-name>Default</skin-name>
-    <css-path>/skin/css/gettingstarted.css</css-path>
-    <css-priority>1</css-priority>
-  </portlet-skin>
-  <portlet-skin>
-    <application-name>homepage-portlets</application-name>
-    <portlet-name>SuggestionsPeopleSpace</portlet-name>
-    <skin-name>Default</skin-name>
-    <css-path>/skin/css/suggestions.css</css-path>
-    <css-priority>1</css-priority>
-  </portlet-skin>
-  <portlet-skin>
-    <application-name>homepage-portlets</application-name>
-    <portlet-name>Invitations</portlet-name>
-    <skin-name>Default</skin-name>
-    <css-path>/skin/css/invitations.css</css-path>
-    <css-priority>1</css-priority>
-  </portlet-skin>  
-  <portlet-skin>
-    <application-name>homepage-portlets</application-name>
-    <portlet-name>HomePageCalendarPortlet</portlet-name>
-    <skin-name>Default</skin-name>
-    <css-path>/skin/css/calendar.css</css-path>
-    <css-priority>1</css-priority>
-  </portlet-skin>
-  
+   <portlet-skin>
+      <application-name>homepage-portlets</application-name>
+      <portlet-name>WhoIsOnLinPortlet</portlet-name>
+      <skin-name>Default</skin-name>
+      <css-path>/skin/css/whoisonline.css</css-path>
+      <css-priority>1</css-priority>
+   </portlet-skin>
+   <portlet-skin>
+      <application-name>homepage-portlets</application-name>
+      <portlet-name>GettingStartedPortlet</portlet-name>
+      <skin-name>Default</skin-name>
+      <css-path>/skin/css/gettingstarted.css</css-path>
+      <css-priority>1</css-priority>
+   </portlet-skin>
+   <portlet-skin>
+      <application-name>homepage-portlets</application-name>
+      <portlet-name>SuggestionsPeopleSpace</portlet-name>
+      <skin-name>Default</skin-name>
+      <css-path>/skin/css/suggestions.css</css-path>
+      <css-priority>1</css-priority>
+   </portlet-skin>
+   <portlet-skin>
+      <application-name>homepage-portlets</application-name>
+      <portlet-name>Invitations</portlet-name>
+      <skin-name>Default</skin-name>
+      <css-path>/skin/css/invitations.css</css-path>
+      <css-priority>1</css-priority>
+   </portlet-skin>
+   <portlet-skin>
+      <application-name>homepage-portlets</application-name>
+      <portlet-name>HomePageCalendarPortlet</portlet-name>
+      <skin-name>Default</skin-name>
+      <css-path>/skin/css/calendar.css</css-path>
+      <css-priority>1</css-priority>
+   </portlet-skin>
+
+   <portlet>
+      <name>WhoIsOnLinPortlet</name>
+      <module>
+         <depends>
+            <module>jQueryToolTip</module>
+         </depends>
+         <depends>
+            <module>jQueryWhoIsOnLine</module>
+         </depends>
+      </module>
+   </portlet>
+
+
+
+   <portlet>
+      <name>Invitations</name>
+      <module>
+         <depends>
+            <module>jQueryInvitations</module>
+         </depends>
+         <depends>
+            <module>jquery</module>
+         </depends>
+      </module>
+   </portlet>
+
+   <portlet>
+      <name>GettingStartedPortlet</name>
+      <module>
+         <depends>
+            <module>juzu-ajax</module>
+         </depends>
+         <depends>
+            <module>jQueryGettingStarted</module>
+         </depends>
+         <depends>
+            <module>jquery</module>
+         </depends>
+      </module>
+   </portlet>
+
+   <portlet>
+      <name>HomePageCalendarPortlet</name>
+      <module>
+         <depends>
+            <module>juzu-ajax</module>
+         </depends>
+         <depends>
+            <module>jQueryCalendar</module>
+         </depends>
+         <depends>
+            <module>jquery</module>
+         </depends>
+      </module>
+   </portlet>
+
+
+   <module>
+      <name>jQueryToolTip</name>
+      <script>
+         <path>/js/whoisonline/jquery.tipTip.minified.js</path>
+      </script>
+      <depends>
+         <module>jquery</module>
+      </depends>
+   </module>
+
+   <module>
+      <name>jQueryWhoIsOnLine</name>
+      <script>
+         <path>/js/whoisonline/whoisonline.js</path>
+      </script>
+      <depends>
+         <module>juzu-ajax</module>
+      </depends>
+   </module>
+
+   <module>
+      <name>jQuerySuggestions</name>
+      <script>
+         <path>/js/suggestions/suggest.js</path>
+      </script>
+      <depends>
+         <module>jquery</module>
+      </depends>
+   </module>
+
+   <module>
+      <name>jQueryInvitations</name>
+      <script>
+         <path>/js/invitations/invitations.js</path>
+      </script>
+      <depends>
+         <module>jquery</module>
+      </depends>
+   </module>
+
+   <module>
+      <name>jQueryCalendar</name>
+      <script>
+         <path>/js/calendar/search.js</path>
+      </script>
+      <depends>
+         <module>juzu-ajax</module>
+      </depends>
+      <depends>
+         <module>jquery</module>
+      </depends>
+   </module>
+
+   <module>
+      <name>jQueryGettingStarted</name>
+      <script>
+         <path>/js/gettingstarted/gettingStarted.js</path>
+      </script>
+      <depends>
+         <module>juzu-ajax</module>
+      </depends>
+      <depends>
+         <module>jquery</module>
+      </depends>
+   </module>
+
 </gatein-resources>

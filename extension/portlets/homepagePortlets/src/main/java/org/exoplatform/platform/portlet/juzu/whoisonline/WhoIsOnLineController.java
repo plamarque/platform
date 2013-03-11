@@ -4,7 +4,7 @@ import juzu.Path;
 import juzu.Resource;
 import juzu.Response;
 import juzu.View;
-import juzu.plugin.ajax.Ajax;
+import org.exoplatform.commons.juzu.ajax.Ajax;
 import juzu.template.Template;
 import org.exoplatform.web.application.RequestContext;
 

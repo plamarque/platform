@@ -21,19 +21,7 @@
     import org.exoplatform.web.application.RequestContext;
 %>
 
-<script type="text/javascript">
-    $('.uiIconClose').on("click", function () {
-        $.getJSON('/rest/homepage/intranet/getting-started/delete');
 
-        $('.GettingStartedContainer').jzLoad("GettingStarted.delete()");
-
-    });
-    $('#DeleteLink').on("click", function () {
-        $.getJSON('/rest/homepage/intranet/getting-started/delete');
-        $('.GettingStartedContainer').jzLoad("GettingStarted.delete()");
-        $('.GettingStartedContainer').css("display","none");
-    });
-</script>
 
 
 <div class="UIGadgetThemes uiBox uiGettingStarted">
