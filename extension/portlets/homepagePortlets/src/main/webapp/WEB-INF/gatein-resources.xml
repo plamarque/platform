@@ -96,13 +96,7 @@
       <name>HomePageCalendarPortlet</name>
       <module>
          <depends>
-            <module>juzu-ajax</module>
-         </depends>
-         <depends>
             <module>jQueryCalendar</module>
-         </depends>
-         <depends>
-            <module>jquery</module>
          </depends>
       </module>
    </portlet>

@@ -28,29 +28,6 @@
 
 %>
 
-<script>
-     $('.prevDate').on("click", function() {
-		 $('div.calendarPortletData').jzLoad(
-				"CalendarPortletController.decDate()",
-				{"nbClick":"1"});
-	});
-    $('.nextDate').on("click", function() {
-        $('div.calendarPortletData').jzLoad(
-            "CalendarPortletController.incDate()",
-            {"nbClick":"1"});
-    });
-    $('.settingsLink').on("click", function(){
-        $('.calendarPortlet').jzLoad(
-                "CalendarPortletController.setting()");
-    });
-    $('.calendarPortlet').mouseover(function () {
-        $('.settingsContainerPage').children("a").css("display", "block");
-
-    });
-    $('.calendarPortlet').mouseout(function () {
-        $('.settingsContainerPage').children("a").css("display", "none");
-    });
-</script>
 <div class="calendarPortlet ">
 	<div class="calendarPortletData uiBox">
 		<h6 class="title clearfix">
