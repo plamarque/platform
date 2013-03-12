@@ -1,4 +1,4 @@
-function initIncoming() {
+(function ($) {
     var visibility;
     var link;
     var acceptlabel;
@@ -172,8 +172,5 @@ function initIncoming() {
             $("#inviteCounter").html(i+1);
         });
     });
-}
 
-$(document).ready(function() {
-    initIncoming();
-});
+})($);

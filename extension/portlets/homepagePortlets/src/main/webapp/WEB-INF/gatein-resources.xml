@@ -55,24 +55,25 @@
       <name>WhoIsOnLinPortlet</name>
       <module>
          <depends>
-            <module>jQueryToolTip</module>
-         </depends>
-         <depends>
             <module>jQueryWhoIsOnLine</module>
          </depends>
       </module>
    </portlet>
 
-
+   <portlet>
+      <name>SuggestionsPeopleSpace</name>
+      <module>
+         <depends>
+            <module>jQuerySuggestions</module>
+         </depends>
+      </module>
+   </portlet>
 
    <portlet>
       <name>Invitations</name>
       <module>
          <depends>
             <module>jQueryInvitations</module>
-         </depends>
-         <depends>
-            <module>jquery</module>
          </depends>
       </module>
    </portlet>
@@ -81,13 +82,7 @@
       <name>GettingStartedPortlet</name>
       <module>
          <depends>
-            <module>juzu-ajax</module>
-         </depends>
-         <depends>
             <module>jQueryGettingStarted</module>
-         </depends>
-         <depends>
-            <module>jquery</module>
          </depends>
       </module>
    </portlet>
@@ -102,16 +97,7 @@
    </portlet>
 
 
-   <module>
-      <name>jQueryToolTip</name>
-      <script>
-         <path>/js/whoisonline/jquery.tipTip.minified.js</path>
-      </script>
-      <depends>
-         <module>jquery</module>
-         <as>jQuery</as>
-      </depends>
-   </module>
+
 
    <module>
       <name>jQueryWhoIsOnLine</name>
@@ -130,9 +116,20 @@
    </module>
 
    <module>
+      <name>jQueryToolTip</name>
+      <script>
+         <path>/js/whoisonline/jquery.tipTip.minified.js</path>
+      </script>
+      <depends>
+         <module>jquery</module>
+         <as>jQuery</as>
+      </depends>
+   </module>
+
+   <module>
       <name>jQuerySuggestions</name>
       <script>
-         <path>/js/suggestions/suggest.js</path>
+         <path>/js/suggestions/suggestscript.js</path>
       </script>
       <depends>
          <module>jquery</module>
@@ -165,7 +162,7 @@
    <module>
       <name>jQueryGettingStarted</name>
       <script>
-         <path>/js/gettingstarted/gettingStarted.js</path>
+         <path>/js/gettingstarted/gettingstartedscript.js</path>
       </script>
       <depends>
          <module>juzu-ajax</module>
@@ -174,5 +171,7 @@
          <module>jquery</module>
       </depends>
    </module>
+
+
 
 </gatein-resources>

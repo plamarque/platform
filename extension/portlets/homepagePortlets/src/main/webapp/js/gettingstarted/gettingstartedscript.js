@@ -17,17 +17,18 @@
  * 02110-1301 USA, or see the FSF site: http://www.fsf.org.
  */
 
-$(function () {
-    $('.GettingStartedContainer').mouseover(function () {
-        $('.DeleteIcon').css("display", "block");
-    });
-    $('.GettingStartedContainer').mouseout(function () {
-        $('.DeleteIcon').css("display", "none");
-    });
-    $('#DeleteLink').on("click", function () {
+(function ($) {
+    $('.jz').on("click", '#DeleteLink' ,function () {
         $.getJSON('/rest/homepage/intranet/getting-started/deletePortlet/delete');
         $('.GettingStartedContainer').jzLoad("GettingStarted.delete()");
         $('.GettingStartedContainer').css("display","none") ;
+    });
+
+    $('.jz').on("click",'.uiIconClose' ,function () {
+        $.getJSON('/rest/homepage/intranet/getting-started/delete');
+
+        $('.GettingStartedContainer').jzLoad("GettingStarted.delete()");
+
     });
 
     $.getJSON('/rest/homepage/intranet/getting-started/deletePortlet/IsDelete', function (del) {
@@ -52,5 +53,4 @@ $(function () {
             }
         }, 60000);
     });
-
-});
+})($);

@@ -19,12 +19,7 @@
 			var userPosition = $(this).find("input[name=userPosition]").val();
 			var userIdentity = $(this).find("input[name=userIdentity]").val();
 			var userRelationId = $(this).find("input[name=userRelationId]").val();
-			$("#"+userId).tipTip({
-	      content: "<div id='tipName' class='clearfix'><a target='_parent' class='pull-left avatarXSmall'><img src='"+userAvatar+"' alt='image' /></a><div class='detail'><div class='name'><a href='"+profileURL+"'>"+fullName+"</a></div><div class='displayName'>"+userPosition+"</div></div></div>"+activity+connect,
-	      defaultPosition: "left",
-	      keepAlive: true,
-	      maxWidth: "240px"
-			});
+			$("#"+userId).tipTip({ content: "<div id='tipName' class='clearfix'><a target='_parent' class='pull-left avatarXSmall'><img src='"+userAvatar+"' alt='image' /></a><div class='detail'><div class='name'><a href='"+profileURL+"'>"+fullName+"</a></div><div class='displayName'>"+userPosition+"</div></div></div>"+activity+connect,defaultPosition: "left", keepAlive: true,maxWidth: "240px"});
 			
 			$("#" + userId +"connect a.connect").live("click", function(){
 				$.getJSON("/rest/homepage/intranet/people/contacts/connect/" + userIdentity, null);
@@ -48,6 +43,11 @@
 		$("#onlineList").each(function() {
 			$(this).jzLoad("WhoIsOnLineController.users()", showTooltip);
 		});
+        if($('#onlineList li').length == 0) {
+            $("#OnlinePortlet").hide();
+        } else {
+            $("#OnlinePortlet").show();
+        }
 	};
 	// Wait 1/2 second (not realistic of course)
 	// And we should use setInterval with 60 seconds
