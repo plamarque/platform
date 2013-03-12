@@ -109,6 +109,7 @@
       </script>
       <depends>
          <module>jquery</module>
+         <as>jQuery</as>
       </depends>
    </module>
 
@@ -119,6 +120,12 @@
       </script>
       <depends>
          <module>juzu-ajax</module>
+      </depends>
+      <depends>
+        <module>jquery</module>
+      </depends>
+      <depends>
+        <module>jQueryToolTip</module>
       </depends>
    </module>
 
