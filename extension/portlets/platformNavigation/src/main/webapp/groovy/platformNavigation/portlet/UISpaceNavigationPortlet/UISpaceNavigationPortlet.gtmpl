@@ -34,6 +34,7 @@
 
     def findSpacesLink = NavigationURLUtils.getURLInCurrentPortal("all-spaces");
 	def groupNavigations = uicomponent.getSpaceLastedAccessed();
+	def spaceTotal=groupNavigations.size();
 	def MY_SPACES_MAX_NUMBER;
 	def spaceImageSource;
 	def spaceURLLink;
