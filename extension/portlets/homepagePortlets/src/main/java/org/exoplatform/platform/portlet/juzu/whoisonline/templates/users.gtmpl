@@ -56,10 +56,12 @@
 
   
 	%>
-    <input name="activity" type="hidden" value="${activity}"/>
-    <input name="connect" type="hidden" value="${connect}"/>
     <li id="${user.getId()}">
       <a class="avatarXSmall"><img src="${user.getAvatar()}" alt="image" /></a>
+      <input name="activity" type="hidden" value="${activity}"/>
+      <input name="connect" type="hidden" value="${connect}"/>
+      <input name="messageLabel" type="hidden" value="${messageLabel}" />
+      
       <input name="userId" type="hidden" value="${user.getId()}" />
       <input name="userAvatar" type="hidden" value="${user.getAvatar()}"/>
       <input name="profileURL" type="hidden" value="${user.getProfileUrl()}"/>

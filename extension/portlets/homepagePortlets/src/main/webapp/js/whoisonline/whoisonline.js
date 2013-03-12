@@ -1,71 +1,52 @@
 (function($) {
-
-	var activity = $('#onlineList input[name=activity]').val();
-	var connect = $('#onlineList input[name=connect]').val();
 	
-	$('#onlineList li').each(function() {
-		var userId = $(this).find("input[name=userId]").val();
-		var userAvatar = $(this).find("input[name=userAvatar]").val();
-		var profileURL = $(this).find("input[name=profileURL]").val();
-		var fullName = $(this).find("input[name=fullName]").val();
-		var userPosition = $(this).find("input[name=userPosition]").val();
-		var userIdentity = $(this).find("input[name=userIdentity]").val();
-		var userRelationId = $(this).find("input[name=userRelationId]").val();
-		
-		showToolTip(userId, userAvatar, profileURL, fullName, userPosition, activity, connect)
-	});
-	
-	function showToolTip(Id,Avatar,ProfileUrl,FullName,Position,activity,connect){
-		console.log("show tooltip " + Id);
-		$("#"+Id).tipTip({
-			conent: "<div>hello would</div>",defaultPosition: "left",keepAlive: true ,maxWidth: "240px"
-		});
+	if($('#onlineList li').length == 0) {
+		$("#OnlinePortlet").hide();
+	} else {
+		$("#OnlinePortlet").show();
 	}
+	
+	var showTooltip = function() {
+		$('#onlineList li').each(function() {
+			var activity = $('#onlineList input[name=activity]').val();
+			var connect = $('#onlineList input[name=connect]').val();
+			var messageLabel = $('#onlineList input[name=messageLabel]').val();
+			
+			var userId = $(this).find("input[name=userId]").val();
+			var userAvatar = $(this).find("input[name=userAvatar]").val();
+			var profileURL = $(this).find("input[name=profileURL]").val();
+			var fullName = $(this).find("input[name=fullName]").val();
+			var userPosition = $(this).find("input[name=userPosition]").val();
+			var userIdentity = $(this).find("input[name=userIdentity]").val();
+			var userRelationId = $(this).find("input[name=userRelationId]").val();
+			$("#"+userId).tipTip({
+	      content: "<div id='tipName' class='clearfix'><a target='_parent' class='pull-left avatarXSmall'><img src='"+userAvatar+"' alt='image' /></a><div class='detail'><div class='name'><a href='"+profileURL+"'>"+fullName+"</a></div><div class='displayName'>"+userPosition+"</div></div></div>"+activity+connect,
+	      defaultPosition: "left",
+	      keepAlive: true,
+	      maxWidth: "240px"
+			});
+			
+			$("#" + userId +"connect a.connect").live("click", function(){
+				$.getJSON("/rest/homepage/intranet/people/contacts/connect/" + userIdentity, null);
+				$("#" + userId + "connect").fadeOut(500, function () {
+					$(this).html("<div id='connectMessge'>" + messageLabel + "</div>");
+					$(this).fadeIn(500, function() {});
+				});
 
-//	$("#${user.getId()}connect a.connect").live("click", function(){
-//	$.getJSON("/rest/homepage/intranet/people/contacts/connect/${user.getIdentity()}", null);
-//	$("#${user.getId()}connect").fadeOut(500, function () {
-//	$("#${user.getId()}connect").html("<div id='connectMessge'>${messageLabel}</div>");
-//	$("#${user.getId()}connect").fadeIn(500, function() {});
-//	});
-//	var refresh = function() {
-//	$("#onlineList").each(function() {
-//	$(this).jzLoad("WhoIsOnLineController.users()");
-//	});
-//	};
+				setTimeout(refresh, 500);
+			});
 
-//	setTimeout(refresh, 500);
-
-
-//	});
-
-//	$("#${user.getId()}accept a.connect").live("click", function(){
-//	$.getJSON("/rest/homepage/intranet/people/contacts/confirm/${user.getRelationId()}", null);
-//	$("#${user.getId()}accept").hide();
-//	var refresh = function() {
-//	$("#onlineList").each(function() {
-//	$(this).jzLoad("WhoIsOnLineController.users()");
-//	});
-//	};
-
-//	setTimeout(refresh, 500);
-
-//	});
-
+			$("#" + userId + "accept a.connect").live("click", function(){
+				$.getJSON("/rest/homepage/intranet/people/contacts/confirm/" + userRelationId, null);
+				$("#" + userId + "accept").hide();
+				setTimeout(refresh, 500);
+			});
+		});
+	};
+	
 	var refresh = function() {
 		$("#onlineList").each(function() {
-			$(this).jzLoad("WhoIsOnLineController.users()");
-			
-			$('#onlineList li').each(function() {
-				var userId = $(this).find("input[name=userId]").val();
-				var userAvatar = $(this).find("input[name=userAvatar]").val();
-				var profileURL = $(this).find("input[name=profileURL]").val();
-				var fullName = $(this).find("input[name=fullName]").val();
-				var userPosition = $(this).find("input[name=userPosition]").val();
-				var userIdentity = $(this).find("input[name=userIdentity]").val();
-				var userRelationId = $(this).find("input[name=userRelationId]").val();
-				showToolTip(userId, userAvatar, profileURL, fullName, userPosition, activity, connect)
-			});
+			$(this).jzLoad("WhoIsOnLineController.users()", showTooltip);
 		});
 	};
 	// Wait 1/2 second (not realistic of course)
